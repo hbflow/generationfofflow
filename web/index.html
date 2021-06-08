@@ -29,17 +29,31 @@
 
   <title>hybriidflow</title>
   <style>
-    body {background-color: black;}
+    body {background-color: black;
+      }
 
-    h2 {
+    @font-face {
+  font-family: myFirstFont;
+  src: url("/assets/TypoHoop_Bold Demo.otf");
+       
+}
+
+    h2 {height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+      
       color: white;
+      font-family: myFirstFont;
     }
    
     </style>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <h2>Version 0.1 Alpha</h1>
+  <h2>HybriidFlow is Loading, Please wait</h1>
   <div
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
