@@ -19,7 +19,8 @@ class fstext extends StatelessWidget {
             '${text}',
             style: TextStyle(
                 fontWeight: FontWeight.w900,
-                fontSize: MediaQuery.of(context).size.width / 20),
+                fontSize: MediaQuery.of(context).size.width / 20,
+                fontFamily: 'Schyler'),
           ),
         ),
       ),

@@ -10,9 +10,9 @@ class _firstpageState extends State<firstpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[200],
       body: fstext(
-        text: 'Welcome to HybriidFlow',
+        text: ('Welcome to HybriidFlow'),
       ),
     );
   }
