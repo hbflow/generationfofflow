@@ -1,6 +1,6 @@
 # hybriidflow
 
-A new Flutter project.
+Official Source code for hybriidflow
 
 ## Getting Started
 
