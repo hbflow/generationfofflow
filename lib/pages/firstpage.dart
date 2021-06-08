@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hybriidflow/widgets/fullscreencentertext.dart';
 
 class firstpage extends StatefulWidget {
   @override
@@ -10,6 +11,9 @@ class _firstpageState extends State<firstpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
+      body: fstext(
+        text: 'Welcome to HybriidFlow',
+      ),
     );
   }
 }
