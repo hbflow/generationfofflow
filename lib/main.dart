@@ -14,19 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: hybriid(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => firstpage(),
+      },
     );
-  }
-}
-
-class hybriid extends StatefulWidget {
-  @override
-  _hybriidState createState() => _hybriidState();
-}
-
-class _hybriidState extends State<hybriid> {
-  @override
-  Widget build(BuildContext context) {
-    return firstpage();
   }
 }
