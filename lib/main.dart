@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/firstpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,8 +27,6 @@ class hybriid extends StatefulWidget {
 class _hybriidState extends State<hybriid> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-    );
+    return firstpage();
   }
 }
