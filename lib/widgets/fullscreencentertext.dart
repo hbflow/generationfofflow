@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:delayed_widget/delayed_widget.dart';
+import 'dart:async';
 
 class fstext extends StatefulWidget {
   final text;
@@ -12,14 +13,25 @@ class fstext extends StatefulWidget {
 }
 
 class _fstextState extends State<fstext> {
+  double opacityLevel = 0;
+
+  Future<void> playy() async {
+    print('c');
+
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
+    });
+
+    print(opacityLevel);
+  }
+
+  void initState() {
+    super.initState();
+    playy();
+  }
+
   @override
   Widget build(BuildContext context) {
-    double opacityLevel = 0;
-
-    void _changeOpacity() {
-      setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
-    }
-
     //The DelayedWidget will be used currently but I will soon create the slide from bottom animation myself
     return DelayedWidget(
       delayDuration: Duration(milliseconds: 200),
@@ -31,16 +43,18 @@ class _fstextState extends State<fstext> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SelectableText(
-                '${widget.text}',
-                style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: MediaQuery.of(context).size.width / 20,
-                    fontFamily: 'Schyler'),
+              InkWell(
+                child: SelectableText(
+                  '${widget.text}',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: MediaQuery.of(context).size.width / 20,
+                      fontFamily: 'Schyler'),
+                ),
               ),
               AnimatedOpacity(
                 opacity: opacityLevel,
-                duration: const Duration(seconds: 3),
+                duration: const Duration(milliseconds: 900),
                 child: Text(
                   '${widget.text2}',
                   style: TextStyle(
