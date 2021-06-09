@@ -13,6 +13,7 @@ class _firstpageState extends State<firstpage> {
       backgroundColor: Colors.grey[200],
       body: fstext(
         text: ('Welcome to HybriidFlow'),
+        text2: ("Let's get you Started :)"),
       ),
     );
   }

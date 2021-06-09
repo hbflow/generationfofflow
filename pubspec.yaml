@@ -64,7 +64,7 @@ flutter:
   fonts:
     - family: Schyler
       fonts:
-        - asset: assets/TypoHoop_Bold Demo.otf
+        - asset: assets/VarelaRound-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
