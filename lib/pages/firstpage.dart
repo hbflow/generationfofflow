@@ -3,11 +3,13 @@ import 'package:hybriidflow/widgets/fullscreencentertext.dart';
 import 'dart:async';
 
 class firstpage extends StatefulWidget {
+  static const String route = '/welcome';
   @override
   _firstpageState createState() => _firstpageState();
 }
 
 class _firstpageState extends State<firstpage> {
+
   String hybriidtext = "Let's get you Started :)";
 
   Future<void> playy() async {
