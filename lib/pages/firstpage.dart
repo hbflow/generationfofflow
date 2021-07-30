@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hybriidflow/widgets/fullscreencentertext.dart';
 import 'dart:async';
+import 'main.dart';
 
 class firstpage extends StatefulWidget {
   static const String route = '/welcome';
@@ -31,7 +32,8 @@ class _firstpageState extends State<firstpage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Any where app');
+        // Navigate to the overview page using a named route.
+        Navigator.of(context).pushNamed(mainpage.route);
       },
       child: Scaffold(
         backgroundColor: Colors.grey[300],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'dart:async';
+import 'package:hybriidflow/main.dart';
 
 class fstext extends StatefulWidget {
   final text;
