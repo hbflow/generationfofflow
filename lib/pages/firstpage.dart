@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hybriidflow/widgets/bottombar.dart';
 import 'package:hybriidflow/widgets/fullscreencentertext.dart';
 import 'dart:async';
 import 'main.dart';
+import 'package:universal_io/io.dart';
 
 class firstpage extends StatefulWidget {
   static const String route = '/welcome';
@@ -37,9 +39,27 @@ class _firstpageState extends State<firstpage> {
       },
       child: Scaffold(
         backgroundColor: Colors.grey[300],
-        body: fstext(
-          text: ('Welcome to HybriidFlow'),
-          text2: (hybriidtext),
+        body: Stack(
+          children: [
+            fstext(
+              text: ('Welcome to HybriidFlow'),
+              text2: (hybriidtext),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [GestureDetector(
+
+                child: Container(
+                  child: Text(' You are running ${Platform.operatingSystem} ', style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 20,
+                      fontFamily: 'Schyler'),),
+                ),
+              )],
+            )
+          ],
         ),
       ),
     );

@@ -10,7 +10,8 @@ class _infowidgetState extends State<infowidget> {
   Widget build(BuildContext context) {
     return Container(
       width: 400,
-      height: 900, decoration: BoxDecoration(
+       height: 400,
+       decoration: BoxDecoration(
         color: Colors.white70,
         borderRadius: BorderRadius.circular(30)
     ),
