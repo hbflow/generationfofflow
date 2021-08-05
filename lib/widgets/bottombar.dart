@@ -1,10 +1,13 @@
+
 import 'package:flutter/material.dart';
+
+
 
 class bottombar extends StatefulWidget {
 
   final ftext;
 
-  const bottombar({Key key, this.ftext}) : super(key: key);
+  const bottombar({key, this.ftext}) : super(key: key);
   @override
   _bottombarState createState() => _bottombarState();
 
@@ -25,3 +28,4 @@ class _bottombarState extends State<bottombar> {
     );
   }
 }
+

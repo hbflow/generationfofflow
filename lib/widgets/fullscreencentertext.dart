@@ -7,7 +7,7 @@ class fstext extends StatefulWidget {
   final text;
   final text2;
 
-  const fstext({Key key, this.text, this.text2}) : super(key: key);
+  const fstext({key, this.text, this.text2}) : super(key: key);
 
   @override
   _fstextState createState() => _fstextState();

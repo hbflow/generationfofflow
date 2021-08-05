@@ -3,6 +3,9 @@ import 'package:hybriidflow/widgets/bottombar.dart';
 import 'package:hybriidflow/widgets/infowidget.dart';
 import 'package:intl/intl.dart';
 import 'package:universal_io/io.dart';
+import 'dart:html' show IFrameElement;
+
+import 'dart:ui' as ui;
 
 class mainpage extends StatefulWidget {
   static const String route = '/flow';
@@ -11,9 +14,27 @@ class mainpage extends StatefulWidget {
 }
 
 class _mainpageState extends State<mainpage> {
-  final List<String> entries = <String>['A', 'B', 'C', 'D'];
+  final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C',];
   final List<int> colorCodes = <int>[600, 500, 100];
   DateTime now = DateTime.now();
+  String dynamic_s ='s';
+
+  void change_s(){
+    if (entries.length >= 1)
+      setState(() {
+        dynamic_s = 's';
+
+      }); else if (entries.length == 0) setState(() {
+      dynamic_s = 's';
+
+    });
+      else if (entries.length == 1)
+        setState(() {
+          dynamic_s = 'ff';
+          print('isnothing');
+        });
+
+  }
 
   void gettime() {
     setState(() {
@@ -30,17 +51,23 @@ class _mainpageState extends State<mainpage> {
     setState(() {
       entries.add("Hello World");
     });
+    change_s();
+    print(dynamic_s);
   }
 
   void delete() {
     setState(() {
       entries.removeLast();
     });
+    change_s();
+    print(dynamic_s);
   }
 
   void initState() {
     super.initState();
     gettime();
+    // ignore: undefined_prefixed_name
+
   }
 
   @override
