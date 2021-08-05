@@ -17,33 +17,35 @@ class mainpage extends StatefulWidget {
 }
 
 class _mainpageState extends State<mainpage> {
-  final List<Widget> entries = <Widget>[date(), time(), plat(), ];
+  final List<Widget> entries = <Widget>[
+    date(),
+    time(),
+    plat(),
+  ];
   final List<int> colorCodes = <int>[600, 500, 100];
   DateTime now = DateTime.now();
-  String dynamic_s ='s';
+  String dynamic_s = 's';
 
-  void change_s(){
+  void change_s() {
     if (entries.length >= 1)
       setState(() {
         dynamic_s = 's';
-
-      }); else if (entries.length == 0) setState(() {
-      dynamic_s = 's';
-
-    });
-      else if (entries.length == 1)
-        setState(() {
-          dynamic_s = 'ff';
-          print('isnothing');
-        });
-
+      });
+    else if (entries.length == 0)
+      setState(() {
+        dynamic_s = 's';
+      });
+    else if (entries.length == 1)
+      setState(() {
+        dynamic_s = 'ff';
+        print('isnothing');
+      });
   }
 
   void gettime() {
     setState(() {
       now = DateTime.now();
     });
-
 
     Future.delayed(Duration(seconds: 1), () {
       gettime();
@@ -70,7 +72,6 @@ class _mainpageState extends State<mainpage> {
     super.initState();
     gettime();
     // ignore: undefined_prefixed_name
-
   }
 
   @override
@@ -81,7 +82,6 @@ class _mainpageState extends State<mainpage> {
         children: [
           Stack(
             children: [
-
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
@@ -104,14 +104,17 @@ class _mainpageState extends State<mainpage> {
                                   width: MediaQuery.of(context).size.width < 600
                                       ? 0
                                       : 30,
-                                  height: MediaQuery.of(context).size.width < 600
-                                      ? 30
-                                      : 0,
+                                  height:
+                                      MediaQuery.of(context).size.width < 600
+                                          ? 30
+                                          : 0,
                                 ),
                                 onTap: delete,
                               ),
                               GestureDetector(
-                                child: infowidget(slot: entries[index],),
+                                child: infowidget(
+                                  slot: entries[index],
+                                ),
                                 onTap: add,
                               ),
                             ],
@@ -123,7 +126,7 @@ class _mainpageState extends State<mainpage> {
                       ftext:
                           '${DateFormat('h:mm').format(now)} | ${Platform.operatingSystem} | ${entries.length} ',
                     ),
-                    onTap: entries.length < 1 ? add : delete ,
+                    onTap: entries.length < 1 ? add : delete,
                   )
                 ],
               )

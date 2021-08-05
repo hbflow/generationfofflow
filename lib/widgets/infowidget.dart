@@ -61,7 +61,7 @@ class _infowidgetState extends State<infowidget> {
 
 
        decoration: BoxDecoration(
-        color: Colors.grey,
+        color: Color(0xffa3a3a3),
         borderRadius: BorderRadius.circular(30),
            border: Border.all(
              color: Colors.black,

@@ -52,6 +52,14 @@ class _fstextState extends State<fstext> {
                     '${widget.text}',
                     style: TextStyle(
                         fontWeight: FontWeight.w900,
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0.0, 3.0),
+                            blurRadius: 3.0,
+                            color: Colors.black54,
+                          ),
+
+                        ],
                         fontSize: MediaQuery.of(context).size.width / 20,
                         fontFamily: 'Schyler'),
                   ),
@@ -66,7 +74,15 @@ class _fstextState extends State<fstext> {
                     style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: MediaQuery.of(context).size.width / 50,
-                        fontFamily: 'Schyler'),
+                        fontFamily: 'Schyler',
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(0.0, 3.0),
+                          blurRadius: 3.0,
+                          color: Colors.black26,
+                        ),
+
+                      ],),
                   ),
                 ),
               ),
