@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: firstpage.route,
+      initialRoute: mainpage.route,
       routes: {
         firstpage.route: (context) => firstpage(),
         mainpage.route: (context) => mainpage(),

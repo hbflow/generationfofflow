@@ -47,23 +47,27 @@ class _fstextState extends State<fstext> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               InkWell(
-                child: SelectableText(
-                  '${widget.text}',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: MediaQuery.of(context).size.width / 20,
-                      fontFamily: 'Schyler'),
+                child: Center(
+                  child: SelectableText(
+                    '${widget.text}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: MediaQuery.of(context).size.width / 20,
+                        fontFamily: 'Schyler'),
+                  ),
                 ),
               ),
               AnimatedOpacity(
                 opacity: opacityLevel,
                 duration: const Duration(milliseconds: 900),
-                child: Text(
-                  '${widget.text2}',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: MediaQuery.of(context).size.width / 50,
-                      fontFamily: 'Schyler'),
+                child: Center(
+                  child: Text(
+                    '${widget.text2}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: MediaQuery.of(context).size.width / 50,
+                        fontFamily: 'Schyler'),
+                  ),
                 ),
               ),
             ],

@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'dart:html';
 
 import 'package:hybriidflow/widgets/fullscreencentertext.dart';
+import 'package:hybriidflow/widgets/slots/livedate.dart';
 import 'package:hybriidflow/widgets/slots/livetime.dart';
 // ignore: camel_case_types
 // ignore: undefined_prefixed_name
@@ -13,6 +14,10 @@ import 'package:hybriidflow/widgets/slots/livetime.dart';
 
 class infowidget extends StatefulWidget {
 
+  final slot;
+
+  const infowidget({Key key, this.slot}) : super(key: key);
+
 
 
   @override
@@ -20,6 +25,8 @@ class infowidget extends StatefulWidget {
 }
 
 class _infowidgetState extends State<infowidget> {
+
+
 
   int test = 3;
 
@@ -32,7 +39,7 @@ class _infowidgetState extends State<infowidget> {
             (int viewId) => IFrameElement()
           ..width = '200'
           ..height = '260'
-          ..src = 'https://www.fiverr.com/users/hybriidbox/manage_gigs'
+          ..src = 'https://api.flutter.dev/flutter/intl/DateFormat-class.html'
           ..style.border = 'none');
   }
 
@@ -49,7 +56,7 @@ class _infowidgetState extends State<infowidget> {
     return Container(
       width: 400,
        height: 800,
-       child: test == 1 ? testtext() : test == 2 ? testtext2() : test == 3 ? time() : error() ,
+       child: widget.slot ,
 
 
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hybriidflow/widgets/bottombar.dart';
 import 'package:hybriidflow/widgets/infowidget.dart';
+import 'package:hybriidflow/widgets/slots/livedate.dart';
+import 'package:hybriidflow/widgets/slots/livetime.dart';
+import 'package:hybriidflow/widgets/slots/platform.dart';
 import 'package:intl/intl.dart';
 import 'package:universal_io/io.dart';
 import 'dart:html' show IFrameElement;
@@ -14,7 +17,7 @@ class mainpage extends StatefulWidget {
 }
 
 class _mainpageState extends State<mainpage> {
-  final List<String> entries = <String>['A', 'B', 'C', 'A', 'B', 'C', 'A', 'B', 'C',];
+  final List<Widget> entries = <Widget>[date(), time(), plat(), ];
   final List<int> colorCodes = <int>[600, 500, 100];
   DateTime now = DateTime.now();
   String dynamic_s ='s';
@@ -49,7 +52,7 @@ class _mainpageState extends State<mainpage> {
 
   void add() {
     setState(() {
-      entries.add("Hello World");
+      entries.add(plat());
     });
     change_s();
     print(dynamic_s);
@@ -108,7 +111,7 @@ class _mainpageState extends State<mainpage> {
                                 onTap: delete,
                               ),
                               GestureDetector(
-                                child: infowidget(),
+                                child: infowidget(slot: entries[index],),
                                 onTap: add,
                               ),
                             ],
