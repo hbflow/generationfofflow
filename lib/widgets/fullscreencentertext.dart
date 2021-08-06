@@ -48,20 +48,24 @@ class _fstextState extends State<fstext> {
             children: [
               InkWell(
                 child: Center(
-                  child: SelectableText(
-                    '${widget.text}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        shadows: <Shadow>[
-                          Shadow(
-                            offset: Offset(0.0, 3.0),
-                            blurRadius: 3.0,
-                            color: Colors.black54,
-                          ),
+                  child: SingleChildScrollView(
+                    child: SelectableText(
 
-                        ],
-                        fontSize: MediaQuery.of(context).size.width / 20,
-                        fontFamily: 'Schyler'),
+                      '${widget.text}',
+
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(0.0, 3.0),
+                              blurRadius: 3.0,
+                              color: Colors.black54,
+                            ),
+
+                          ],
+                          fontSize: MediaQuery.of(context).size.width / 20,
+                          fontFamily: 'Schyler'),
+                    ),
                   ),
                 ),
               ),
@@ -69,20 +73,22 @@ class _fstextState extends State<fstext> {
                 opacity: opacityLevel,
                 duration: const Duration(milliseconds: 900),
                 child: Center(
-                  child: Text(
-                    '${widget.text2}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: MediaQuery.of(context).size.width / 50,
-                        fontFamily: 'Schyler',
-                      shadows: <Shadow>[
-                        Shadow(
-                          offset: Offset(0.0, 3.0),
-                          blurRadius: 3.0,
-                          color: Colors.black26,
-                        ),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      '${widget.text2}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: MediaQuery.of(context).size.width / 50,
+                          fontFamily: 'Schyler',
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(0.0, 3.0),
+                            blurRadius: 3.0,
+                            color: Colors.black26,
+                          ),
 
-                      ],),
+                        ],),
+                    ),
                   ),
                 ),
               ),

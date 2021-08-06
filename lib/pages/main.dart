@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hybriidflow/widgets/bottombar.dart';
 import 'package:hybriidflow/widgets/infowidget.dart';
+import 'package:hybriidflow/widgets/slots/def.dart';
+import 'package:hybriidflow/widgets/slots/imageview.dart';
 import 'package:hybriidflow/widgets/slots/livedate.dart';
 import 'package:hybriidflow/widgets/slots/livetime.dart';
 import 'package:hybriidflow/widgets/slots/platform.dart';
@@ -18,29 +20,32 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   final List<Widget> entries = <Widget>[
-    date(),
-    time(),
+    dict(),
     plat(),
+    imageviewer(),
+    time(),
+    error(),
+
+
+
+
+
+
   ];
   final List<int> colorCodes = <int>[600, 500, 100];
   DateTime now = DateTime.now();
   String dynamic_s = 's';
-
-  void change_s() {
-    if (entries.length >= 1)
+  void dyn() {
+    if (entries.length == 1)
       setState(() {
-        dynamic_s = 's';
+        dynamic_s = '${entries.length} widget';
       });
-    else if (entries.length == 0)
+    else
       setState(() {
-        dynamic_s = 's';
-      });
-    else if (entries.length == 1)
-      setState(() {
-        dynamic_s = 'ff';
-        print('isnothing');
+        dynamic_s = '${entries.length} widgets';
       });
   }
+
 
   void gettime() {
     setState(() {
@@ -52,11 +57,15 @@ class _mainpageState extends State<mainpage> {
     });
   }
 
+  void love(crazy) {
+    print(crazy);
+  }
+
   void add() {
     setState(() {
-      entries.add(plat());
+      entries.add(imageviewer());
     });
-    change_s();
+    dyn();
     print(dynamic_s);
   }
 
@@ -64,13 +73,20 @@ class _mainpageState extends State<mainpage> {
     setState(() {
       entries.removeLast();
     });
-    change_s();
+    dyn();
     print(dynamic_s);
+  }
+
+  void remove(at){
+    setState(() {
+      entries.removeAt(at);
+    });
   }
 
   void initState() {
     super.initState();
     gettime();
+    dyn();
     // ignore: undefined_prefixed_name
   }
 
@@ -114,6 +130,7 @@ class _mainpageState extends State<mainpage> {
                               GestureDetector(
                                 child: infowidget(
                                   slot: entries[index],
+                                  what: (){remove(index);},
                                 ),
                                 onTap: add,
                               ),
@@ -124,7 +141,7 @@ class _mainpageState extends State<mainpage> {
                   GestureDetector(
                     child: bottombar(
                       ftext:
-                          '${DateFormat('h:mm').format(now)} | ${Platform.operatingSystem} | ${entries.length} ',
+                          '${DateFormat('h:mm').format(now)} | ${Platform.operatingSystem} | ${dynamic_s} ',
                     ),
                     onTap: entries.length < 1 ? add : delete,
                   )
