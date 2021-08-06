@@ -29,7 +29,7 @@ class _imageviewerState extends State<imageviewer> {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.network('https://media2.giphy.com/media/G8rcbSPfCgs3VDrWi5/200w.gif'),
+            child: Image.network('https://images-na.ssl-images-amazon.com/images/I/71Cb7oS1cuL.jpg'),
           )
         ),
       ),

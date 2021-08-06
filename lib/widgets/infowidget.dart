@@ -9,7 +9,7 @@ import 'package:hybriidflow/widgets/slots/livedate.dart';
 import 'package:hybriidflow/widgets/slots/livetime.dart';
 // ignore: camel_case_types
 // ignore: undefined_prefixed_name
-String src = 'https://flutter.dev/docs/development/tools/web-renderers';
+String src = 'https://foxxx4xs.github.io/makemelunch/web/#/';
 
 
 class infowidget extends StatefulWidget {
@@ -83,7 +83,7 @@ class _infowidgetState extends State<infowidget> {
 
 
            decoration: BoxDecoration(
-            color: Color(0xff5c5c5c),
+            color: Color(0xff808080),
             borderRadius: BorderRadius.circular(30),
                border: Border.all(
                  color: Colors.black,

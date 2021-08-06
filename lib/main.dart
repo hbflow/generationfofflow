@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hybriidflow/pages/main.dart';
+import 'package:hybriidflow/pages/unknown.dart';
 import 'pages/firstpage.dart';
 import 'dart:html';
 import 'dart:ui' as ui;
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
         firstpage.route: (context) => firstpage(),
         mainpage.route: (context) => mainpage(),
       },
+      onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => unknownpage()
+      ) ,
     );
   }
 }

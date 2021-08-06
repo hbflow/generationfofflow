@@ -24,7 +24,13 @@ class _mainpageState extends State<mainpage> {
     plat(),
     imageviewer(),
     time(),
-    error(),
+
+
+    dict(),
+    plat(),
+    imageviewer(),
+    time(),
+
 
 
 
@@ -32,7 +38,9 @@ class _mainpageState extends State<mainpage> {
 
 
   ];
+  final _controller = ScrollController();
   final List<int> colorCodes = <int>[600, 500, 100];
+  final _height = 100.0;
   DateTime now = DateTime.now();
   String dynamic_s = 's';
   void dyn() {
@@ -44,6 +52,11 @@ class _mainpageState extends State<mainpage> {
       setState(() {
         dynamic_s = '${entries.length} widgets';
       });
+  }
+
+  void scroll(ani){
+    _controller.animateTo(ani, duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
+
   }
 
 
@@ -105,6 +118,7 @@ class _mainpageState extends State<mainpage> {
                 children: [
                   Expanded(
                     child: ListView.builder(
+                        controller: _controller,
                         itemCount: entries.length,
                         scrollDirection: MediaQuery.of(context).size.width < 600
                             ? Axis.vertical
@@ -143,7 +157,7 @@ class _mainpageState extends State<mainpage> {
                       ftext:
                           '${DateFormat('h:mm').format(now)} | ${Platform.operatingSystem} | ${dynamic_s} ',
                     ),
-                    onTap: entries.length < 1 ? add : delete,
+                    onTap:  entries.length < 1 ? add : delete ,
                   )
                 ],
               )
@@ -153,6 +167,7 @@ class _mainpageState extends State<mainpage> {
       ),
     );
   }
+  _animateToIndex(i) => _controller.animateTo(_height * i, duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
 }
 //Container(
 //                           height: 100,
