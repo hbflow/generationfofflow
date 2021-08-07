@@ -33,19 +33,50 @@ class _bottombarState extends State<bottombar> {
         ],
 
       ),
-      child: Center(child: Text(widget.ftext, style: TextStyle(
-          fontWeight: FontWeight.w900,
-          fontSize: 20,
-          fontFamily: 'Schyler',
-        shadows: <Shadow>[
-          Shadow(
-            offset: Offset(0.0, 3.0),
-            blurRadius: 3.0,
-            color: Colors.black54,
+      child: Stack(
+        children: [
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [ElevatedButton(
+                onPressed: () {},
+                child: Icon(Icons.add, color: Colors.black),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsets.all(20),
+                  primary: Colors.grey, // <-- Button color
+                  onPrimary: Colors.black,
+                  shadowColor: Colors.black// <-- Splash color
+                ),
+              ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.settings, color: Colors.black),
+                  style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(20),
+                      primary: Colors.grey, // <-- Button color
+                      onPrimary: Colors.black,
+                      shadowColor: Colors.black// <-- Splash color
+                  ),
+                )],
+            ),
           ),
+          Center(child: Text(widget.ftext, style: TextStyle(
+              fontWeight: FontWeight.w900,
+              fontSize: 20,
+              fontFamily: 'Schyler',
+            shadows: <Shadow>[
+              Shadow(
+                offset: Offset(0.0, 3.0),
+                blurRadius: 3.0,
+                color: Colors.black54,
+              ),
 
-        ],),
-      )),
+            ],),
+          )),
+        ],
+      ),
     );
   }
 }

@@ -19,11 +19,30 @@ class _unknownpageState extends State<unknownpage> {
   Future<void> playy() async {
     print('2nd working');
 
-    Future.delayed(const Duration(seconds: 5), () {
+    await Future.delayed(const Duration(seconds: 5), () {
       setState(() {
         hybriidtext = "Where Are You?";
       });
     });
+    await Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        hybriidtext = "Tap Anywhere to go back....";
+      });
+    });
+    await Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        hybriidtext = "Or Just.. Stay Here :)";
+      });
+    });
+    await Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        hybriidtext = "You're still here.....";
+      });
+    });
+    await Future.delayed(const Duration(seconds: 5), () {
+      playy();
+    });
+
   }
 
   void initState() {

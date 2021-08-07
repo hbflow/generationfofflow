@@ -63,18 +63,7 @@ class _infowidgetState extends State<infowidget> {
   Widget build(BuildContext context, ) {
     return Stack(
       children: [
-        GestureDetector(
-          onTap: widget.what,
-          child: Container(
-            width: 30,
-            height: 100,
 
-            decoration: BoxDecoration(
-                color: Color(0xff8c4343),
-              borderRadius: BorderRadius.circular(30)
-            ),
-          ),
-        ),
         Container(
           width: 400,
            height: 800,
@@ -96,8 +85,39 @@ class _infowidgetState extends State<infowidget> {
                  blurRadius: 7,
                  offset: Offset(0, 3), // changes position of shadow
                ),
+               BoxShadow(
+                 color:Colors.black.withOpacity(0.5),
+                 spreadRadius: -12.0,
+                 blurRadius: 12.0,
+               ),
              ],
         ),
+        ),
+        InkWell(
+          onTap: widget.what,
+          child: Container(
+            width: 30,
+            height: 30,
+
+            decoration: BoxDecoration(
+                color: Color(0xff8c4343),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                  BoxShadow(
+                    color:Colors.black.withOpacity(0.5),
+                    spreadRadius: -12.0,
+                    blurRadius: 12.0,
+                  ),
+                ],
+
+                borderRadius: BorderRadius.circular(30)
+            ),
+          ),
         ),
       ],
     );

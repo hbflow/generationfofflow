@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hybriidflow/widgets/bottombar.dart';
 import 'package:hybriidflow/widgets/infowidget.dart';
+import 'package:hybriidflow/widgets/slots/api.dart';
 import 'package:hybriidflow/widgets/slots/def.dart';
 import 'package:hybriidflow/widgets/slots/imageview.dart';
 import 'package:hybriidflow/widgets/slots/livedate.dart';
@@ -20,16 +21,12 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   final List<Widget> entries = <Widget>[
-    dict(),
-    plat(),
-    imageviewer(),
-    time(),
+    last(),
+    last(),
+    last(),
+    last(),
+    last(),
 
-
-    dict(),
-    plat(),
-    imageviewer(),
-    time(),
 
 
 
