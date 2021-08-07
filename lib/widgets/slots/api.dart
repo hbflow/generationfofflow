@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:async/async.dart';
 import 'dart:async';
 
-import '../privateinfo.dart';
+import 'secret/privateinfo.dart';
 
 class last extends StatefulWidget {
   @override
