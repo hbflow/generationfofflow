@@ -9,7 +9,7 @@ import 'package:hybriidflow/widgets/slots/livedate.dart';
 import 'package:hybriidflow/widgets/slots/livetime.dart';
 // ignore: camel_case_types
 // ignore: undefined_prefixed_name
-String src = 'https://foxxx4xs.github.io/makemelunch/web/#/';
+String src = 'https://wildandrare.github.io/WildAssistant1/';
 
 
 class infowidget extends StatefulWidget {
@@ -35,7 +35,7 @@ class _infowidgetState extends State<infowidget> {
 
   void initState() {
     super.initState();
-    print(src);
+    print('STOP INIT STATING ME');
 
 
 

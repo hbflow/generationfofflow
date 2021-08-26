@@ -13,9 +13,12 @@ class last extends StatefulWidget {
 
 class _lastState extends State<last> {
   String g = 'Retrieving Music';
-  String image = 'https://i.scdn.co/image/ab67616d0000b2730d3e6cf32db8f4546dc7e755';
+  String image =
+      'https://i.scdn.co/image/ab67616d0000b2730d3e6cf32db8f4546dc7e755';
   String user = 'Foxx2xs';
   String Audio = 'Waiting for Music';
+  String Artist = 'Waiting for Music';
+  String Song = 'Waiting for Music';
 
   void getdata() async {
     Response response = await get(Uri.parse(
@@ -37,15 +40,18 @@ class _lastState extends State<last> {
     //print(song);
     String attr =
         data['recenttracks']["track"][0]["@attr"]["nowplaying"].toString();
-    print(attr);
+   // print(attr);
     String img =
         data['recenttracks']["track"][0]["image"][3]["#text"].toString();
-    print(img);
+    //print(img);
     setState(() {
       image = img;
       Audio = audio;
+      Artist = name;
+      Song = song;
     });
   }
+
 
   Future<void> repeat() async {
     await Future.delayed(Duration(seconds: 3), () {
@@ -59,9 +65,7 @@ class _lastState extends State<last> {
   void initState() {
     super.initState();
     getdata();
-
-
-
+   // repeat();
   }
 
   @override
@@ -93,7 +97,54 @@ class _lastState extends State<last> {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(image),
                 )),
-            Text('${Audio}')
+            FittedBox(
+              child: Text(
+                '${Audio}',
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(0.0, 3.0),
+                        blurRadius: 3.0,
+                        color: Colors.black54,
+                      ),
+                    ],
+                    fontSize: 40,
+                    fontFamily: 'Schyler'),
+              ),
+            ),
+            FittedBox(
+              child: Text(
+                '${Artist}',
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(0.0, 3.0),
+                        blurRadius: 3.0,
+                        color: Colors.black54,
+                      ),
+                    ],
+                    fontSize: 40,
+                    fontFamily: 'Schyler'),
+              ),
+            ),
+            FittedBox(
+              child: Text(
+                '${Song}',
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(0.0, 3.0),
+                        blurRadius: 3.0,
+                        color: Colors.black54,
+                      ),
+                    ],
+                    fontSize: 40,
+                    fontFamily: 'Schyler'),
+              ),
+            )
           ],
         ),
       ),

@@ -21,25 +21,31 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   final List<Widget> entries = <Widget>[
-    last(),
-    last(),
-    last(),
-    last(),
-    last(),
-
-
-
-
-
-
-
-
+    dict(),
+    imageviewer(),
+  ];
+  final List<Widget> slots = <Widget>[
+    dict(),
+    imageviewer(),
+    error(),
+    plat(),
+    time(),
+    date(),
+  ];
+  final List<String> slotsnames = <String>[
+    'Dictionary',
+    'Image Viewer',
+    'Web View(BETA)',
+    'Platform',
+    'Time',
+    'Date',
   ];
   final _controller = ScrollController();
   final List<int> colorCodes = <int>[600, 500, 100];
   final _height = 100.0;
   DateTime now = DateTime.now();
   String dynamic_s = 's';
+  bool on = false;
   void dyn() {
     if (entries.length == 1)
       setState(() {
@@ -51,11 +57,21 @@ class _mainpageState extends State<mainpage> {
       });
   }
 
-  void scroll(ani){
-    _controller.animateTo(ani, duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
-
+  void scroll(ani) {
+    _controller.animateTo(ani,
+        duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
   }
 
+  void addmenu() {
+    if (on == true)
+      setState(() {
+        on = false;
+      });
+    else
+      setState(() {
+        on = true;
+      });
+  }
 
   void gettime() {
     setState(() {
@@ -87,7 +103,7 @@ class _mainpageState extends State<mainpage> {
     print(dynamic_s);
   }
 
-  void remove(at){
+  void remove(at) {
     setState(() {
       entries.removeAt(at);
     });
@@ -141,7 +157,9 @@ class _mainpageState extends State<mainpage> {
                               GestureDetector(
                                 child: infowidget(
                                   slot: entries[index],
-                                  what: (){remove(index);},
+                                  what: () {
+                                    remove(index);
+                                  },
                                 ),
                                 onTap: add,
                               ),
@@ -153,18 +171,80 @@ class _mainpageState extends State<mainpage> {
                     child: bottombar(
                       ftext:
                           '${DateFormat('h:mm').format(now)} | ${Platform.operatingSystem} | ${dynamic_s} ',
+                      action: () {
+                        addmenu();
+                      },
                     ),
-                    onTap:  entries.length < 1 ? add : delete ,
+                    //onTap: entries.length < 1 ? add : delete,
                   )
                 ],
-              )
+              ),
+              Visibility(
+                visible: on,
+                child: Stack(
+                  children: [
+                    ClipRect(
+                      child: BackdropFilter(
+                        filter: ui.ImageFilter.blur(
+                          sigmaX: 5.0,
+                          sigmaY: 5.0,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            addmenu();
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: double.infinity,
+                            color: Colors.black12,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ClipRect(
+                      child: Center(
+                        child: Container(
+                            width: double.infinity,
+                            height: MediaQuery.of(context).size.height / 2,
+                            color: Colors.black,
+                            child: RepaintBoundary(
+                              child: ListView.builder(
+                                  padding: const EdgeInsets.all(8),
+                                  shrinkWrap: true,
+
+                                  scrollDirection:
+                                      MediaQuery.of(context).size.width < 600
+                                          ? Axis.vertical
+                                          : Axis.horizontal,
+                                  itemCount: slots.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return option(
+                                      text: slotsnames[index],
+                                      add: () {
+                                        entries.add(slots[index]);
+                                        print('DONEEE');
+                                        setState(() {
+                                          on = false;
+                                        });
+                                      },
+                                    );
+                                  }),
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           )
         ],
       ),
     );
   }
-  _animateToIndex(i) => _controller.animateTo(_height * i, duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
+
+  _animateToIndex(i) => _controller.animateTo(_height * i,
+      duration: Duration(seconds: 2), curve: Curves.fastOutSlowIn);
 }
 //Container(
 //                           height: 100,
@@ -172,3 +252,85 @@ class _mainpageState extends State<mainpage> {
 //                           color: Colors.white,
 //                           child: Text(entries.length > 1 ?'There are ${entries.length } Squares' : 'There is 1 Square'),
 //                         ),
+
+class option extends StatefulWidget {
+  final text;
+  final add;
+
+  const option({Key key, this.text, this.add}) : super(key: key);
+  @override
+  _optionState createState() => _optionState();
+}
+
+class _optionState extends State<option> {
+  @override
+  Widget build(BuildContext context) {
+    return RepaintBoundary(
+      child: Row(
+
+        children: [
+          SizedBox(width: 50,),
+          SizedBox(
+            child: InkWell(
+              onTap: widget.add,
+              child: Container(
+                width: 300,
+                height: 300,
+                child: Center(
+                  child: Container(
+                    width: 300,
+                    child: Center(child: Center(
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(widget.text,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            shadows: <Shadow>[
+                              Shadow(
+                                offset: Offset(0.0, 3.0),
+                                blurRadius: 3.0,
+                                color: Colors.black54,
+                              ),
+
+                            ],
+
+                            fontFamily: 'Schyler'),),
+                      ),
+                    )),
+                    height: 300,
+                    decoration: BoxDecoration(
+                      color: Color(0xff808080),
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 4,
+                      ),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[Colors.white, Colors.white60],
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: -12.0,
+                          blurRadius: 12.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
