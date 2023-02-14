@@ -253,26 +253,26 @@ class _SettingOptionsState extends State<SettingOptions> {
                           textsize: 15,
                         ),
                         SizedBox(
-                          height: 150,
+                          width: sizeforsized,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.height ,
+                          width: MediaQuery.of(context).size.width / 1.2,
                           height: 30,
                           child: FittedBox(
                               child: Text(
-                            'Other Settings',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                color: Color(0xffe5e5e5),
-                                shadows: <Shadow>[
-                                  Shadow(
-                                    offset: Offset(0.0, 1.0),
-                                    blurRadius: 3.0,
-                                    color: Colors.black26,
-                                  ),
-                                ],
-                                fontFamily: 'Schyler'),
-                          )),
+                                'Other Settings',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w900,
+                                    color: Color(0xffe5e5e5),
+                                    shadows: <Shadow>[
+                                      Shadow(
+                                        offset: Offset(0.0, 1.0),
+                                        blurRadius: 3.0,
+                                        color: Colors.black26,
+                                      ),
+                                    ],
+                                    fontFamily: 'Schyler'),
+                              )),
                         ),
                         option(
                           ogtextl: 'Show No Widget Warning',

@@ -12,31 +12,31 @@ class dict extends StatefulWidget {
 }
 
 class _dictState extends State<dict> {
-  String g = 'Dictionary';
+  String g = '';
   List c;
   List m;
   String definiton = 'lllllll';
 
   void getdata() async {
+
     Response response = await get(Uri.parse(
-        'https://api.dictionaryapi.dev/api/v2/entries/en_US/truth'));
+        'https://api.dictionaryapi.dev/api/v2/entries/en_US/$definiton'));
     List data = jsonDecode(response.body);
-    print(data);
-    final d = data;
+    List<dynamic> meanings = data[0]['meanings'];
 
-    String datetime = data.first['meanings'][0]['definitions'][0]['definition'];
-    List destiny = data.first['meanings'][0]['definitions'];
-    List grace = data.first['meanings'];
+    String definitions = '';
+    for (var i = 0; i < meanings.length; i++) {
+      List<dynamic> defs = meanings[i]['definitions'];
+      for (var j = 0; j < defs.length; j++) {
+        String definition = defs[j]['definition'];
+        definitions += (j + 1).toString() + '. ' + definition + '\n';
+      }
+    }
 
-    print(datetime);
     setState(() {
-      g = datetime;
-      c = destiny;
-      m = grace;
+      g = definitions;
     });
-
   }
-
   List data;
 
   Future<String> getData() async {
@@ -76,7 +76,7 @@ class _dictState extends State<dict> {
             child: Container(
               decoration: BoxDecoration(
                 color: Color(0xda191919),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(9),
                 border: Border.all(
                   color: Colors.white,
                   width: 2,
@@ -88,26 +88,26 @@ class _dictState extends State<dict> {
                 ),
               ),
               height: 300,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: ListView.builder(
-                  itemCount: 3,
-                  padding: const EdgeInsets.all(8),
-                  itemBuilder: (BuildContext context, int index){
-                    return ConstrainedBox(
-                      constraints: BoxConstraints(maxHeight: 1000),
-                      child: ListView.builder(itemCount: 3,
-                        itemBuilder: (BuildContext context, int index){
-                          return Container(
-                            height: 50,
-                            width: 90,
-                            color: Colors.green,
-                            child: Center(child: Text('test')),
-                          );
-                        },
-                      ),
-                    );
-                  },
+              child: SingleChildScrollView(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(9),
+                  child: Center(
+                    child: Text(
+                      g,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black,
+                          fontSize: 15,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(0.0, 3.0),
+                              blurRadius: 3.0,
+                              color: Colors.black54,
+                            ),
+                          ],
+                          fontFamily: 'Schyler'),
+                    ),
+                  )
                 ),
               ),
 
