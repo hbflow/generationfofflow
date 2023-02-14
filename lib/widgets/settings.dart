@@ -19,7 +19,7 @@ class option extends StatefulWidget {
       {Key key,
       this.s,
       this.stext,
-      this.ogtextl = 'Error Retrieving Setting',
+      this.ogtextl = 'Error Retrieving the Setting',
       this.textsize = 30})
       : super(key: key);
   @override
