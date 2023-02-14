@@ -13,8 +13,6 @@ class date extends StatefulWidget {
 class _dateState extends State<date> {
   DateTime now = DateTime.now();
 
-
-
   void gettime() {
     setState(() {
       now = DateTime.now();
@@ -39,6 +37,9 @@ class _dateState extends State<date> {
       child: fstext(
         text: ('${DateFormat('yMMMMd').format(now)}'),
         text2: ('${DateFormat('E').format(now)}') ,
+        color: Color(0xffc7c7c7),
+        color2: Color(0xffc7c7c7),
+        textsize: 40,
       ),
     );
   }

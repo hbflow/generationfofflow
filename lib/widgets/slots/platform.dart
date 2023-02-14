@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hybriidflow/global/globvabs.dart';
 import 'package:intl/intl.dart';
 import 'package:universal_io/io.dart';
 
@@ -39,7 +40,9 @@ class _platState extends State<plat> {
     return Container(
       child: fstext(
         text: ('${Platform.operatingSystem}'),
-        text2: ('${Platform.operatingSystemVersion}') ,
+        text2: ('${Platform.operatingSystemVersion} • Flow ${hflowversion}') ,
+        color: Color(0xffc7c7c7),
+        color2: Color(0xffc7c7c7),
       ),
     );
   }

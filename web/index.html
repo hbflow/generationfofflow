@@ -11,7 +11,7 @@
     Fore more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
-  <base href="/">
+
 
   <!--Made With ❤ by HybriidBox-->
 
@@ -31,31 +31,42 @@
 
   <title>hybriidflow</title>
   <style>
-    body {background-color: black;
+    body {background-color: #808080;
       }
 
     @font-face {
   font-family: myFirstFont;
-  src: url("/assets/VarelaRound-Regular.ttf");
+  src: url("icons/VarelaRound-Regular.ttf");
        
 }
 
-    h2 {height: 100%;
-  width: 100%;
-  display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-      
-      color: white;
-      font-family: myFirstFont;
-    }
-   
+
+
+
+
+.inner {
+display: table-cell;
+  text-align: center;
+  width: 50%;
+  padding: 70px 0;
+
+}
+
+.inner img {
+  width: 32%;
+}
+
     </style>
   <link rel="manifest" href="manifest.json">
 </head>
-<body>
-  <h2>HybriidFlow is Loading, Please wait..</h1>
+
+
+
+
+<div class="inner">
+  <img src="icons/hblow.png" />
+</div>
+
   <div
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
@@ -68,6 +79,7 @@
     }
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
-  
+
+
 </body>
 </html>

@@ -26,7 +26,7 @@ class _unknownpageState extends State<unknownpage> {
     });
     await Future.delayed(const Duration(seconds: 5), () {
       setState(() {
-        hybriidtext = "Tap Anywhere to go back....";
+        hybriidtext = "Tap Anywhere to go to the main page";
       });
     });
     await Future.delayed(const Duration(seconds: 5), () {

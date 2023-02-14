@@ -6,8 +6,11 @@ import 'package:hybriidflow/main.dart';
 class fstext extends StatefulWidget {
   final text;
   final text2;
-
-  const fstext({key, this.text, this.text2}) : super(key: key);
+  final color;
+  final color2;
+  final textsize;
+  final textsize2;
+  const fstext({key, this.text, this.text2, this.color = Colors.black, this.color2 = Colors.black, this.textsize = 70, this.textsize2 = 23}) : super(key: key);
 
   @override
   _fstextState createState() => _fstextState();
@@ -20,7 +23,7 @@ class _fstextState extends State<fstext> {
   Future<void> playy() async {
     print('c');
 
-    Future.delayed(const Duration(milliseconds: 2000), () {
+    Future.delayed(const Duration(milliseconds: 1200), () {
       setState(() => opacityLevel = opacityLevel == 0 ? 1.0 : 0.0);
     });
 
@@ -39,6 +42,7 @@ class _fstextState extends State<fstext> {
     return DelayedWidget(
       delayDuration: Duration(milliseconds: 200),
       animationDuration: Duration(seconds: 1),
+
       animation: DelayedAnimations.SLIDE_FROM_BOTTOM,
       child: Center(
         child: Container(
@@ -51,11 +55,14 @@ class _fstextState extends State<fstext> {
                   child: SingleChildScrollView(
                     child: SelectableText(
 
+
                       '${widget.text}',
 
                       style: TextStyle(
                           fontWeight: FontWeight.w900,
+                          color: widget.color,
                           shadows: <Shadow>[
+
                             Shadow(
                               offset: Offset(0.0, 3.0),
                               blurRadius: 3.0,
@@ -63,7 +70,7 @@ class _fstextState extends State<fstext> {
                             ),
 
                           ],
-                          fontSize: MediaQuery.of(context).size.width / 20,
+                          fontSize: widget.textsize,
                           fontFamily: 'Schyler'),
                     ),
                   ),
@@ -71,14 +78,17 @@ class _fstextState extends State<fstext> {
               ),
               AnimatedOpacity(
                 opacity: opacityLevel,
-                duration: const Duration(milliseconds: 900),
+                duration: const Duration(milliseconds: 800),
                 child: Center(
                   child: SingleChildScrollView(
                     child: Text(
                       '${widget.text2}',
                       style: TextStyle(
+
                           fontWeight: FontWeight.w900,
-                          fontSize: MediaQuery.of(context).size.width / 50,
+                        color: widget.color2,
+
+                          fontSize: widget.textsize2,
                           fontFamily: 'Schyler',
                         shadows: <Shadow>[
                           Shadow(
